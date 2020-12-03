@@ -1,4 +1,4 @@
-from utils.Bot import Evaluate
+from utils.bot import Evaluate
 
 evaluate = Evaluate()
 

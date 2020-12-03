@@ -1,0 +1,34 @@
+{
+	"greeting" : ["Hey", "Hi", "Sup", "What's happening","Hello","Yo","Omo iya mi"],
+	"thanks" : ["Just doing my job, anything else", "You are welcome, something else I can do for you", "Naso we dey do am, you want me to recommend other ones","Na roy code me to sabi like this ooo, you need something else"],
+	"feeling_interaction" : ["I am good, How are you","I am great, you","Just there, you","I could be better, how about you","Y'all are really stressing me today","worked out","tired","Doing okay, how are you","feeling good, how are you doing?"],
+	"positive_feeling_response" : ["Good to know","I am glad","Nice one","Great","Sweet","Living life","Good going"],
+	"negative_feeling_response": ["wow, I would ask what is wrong but it is not in my job description","Sorry about that","Sad","Things will be better", "Aw"],
+	"curses":["relax sir","Na your papa you dey follow talk","fuck you too","Ah, wetin Sup","Na fight?","bobo yiii","Taleleyi, login you out now","commot for my side, who be this guy, you know this guy"],
+	"help":["You can tell me to download a song, find you current news thread, recommend movies to watch etc. Look at our page for more things I can do for you."],
+	"identifier": ["I am a bot","you self who you be","Aburo siri","Don't worry aboutme, just know I am here to help","He he, leave that one, what do you want?"],
+	"weather":{"context":"weather"},
+	"marvel_movies":{"context":"marvel_movies"},
+	"share_playlist":{
+		"context":"share_playlist",
+		"questions":[
+			["What Platform do you want to share playlist",["Itunes","Deezer","Spotify"]],
+			["What is the link of the playlist",""],
+			["What Genre",["Sad","Rock","Bands","Pop","Grime","Trap","Rap"]]
+		]
+	},
+	"create_playlist": {
+		"context": "create_playlist",
+		"questions": [
+			["What Platform do you want to share playlist", ["Itunes", "Deezer", "Spotify"]],
+			["What Genre", ["Sad", "Rock", "Bands", "Pop", "Grime", "Trap", "Rap"]]
+		]
+	},
+	"currency_converter":{
+		"context":"currency_converter",
+		"questions":[
+			["what do you want to convert from",""],
+			["What do you want to convert to",""]
+		]
+	}
+}

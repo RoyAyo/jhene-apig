@@ -17,12 +17,12 @@ class Evaluate():
         self.keywords = {"soundcloud":"music","Deezer":"music","Spotify":"music","Netflix":"watch_movie","Twitter":"twitter"}
 
     def load_words(self):
-        with open('model_props/files/words_used.pkl','rb') as f:
+        with open('model_props/words_used.pkl','rb') as f:
             words,classes = pickle.load(f)
         return (words,classes)
 
     def load_keras(self):
-        json_file = open('model_props/files/bot_model.json','r')
+        json_file = open('model_props/bot_model.json','r')
         model_json = json_file.read()
         json_file.close()
 
@@ -30,13 +30,12 @@ class Evaluate():
         self.sess = Session()
         set_session(self.sess)
         model = model_from_json(model_json)
-        model.load_weights("model_props/files/bot_model.h5")
+        model.load_weights("model_props/bot_model.h5")
 
         return model
 
     def res_json(self):
-        res_file = open('model_props/files/res.json','r')
-        # api_file = open('model_props/files/apis.json','r')
+        res_file = open('model_props/res.json','r')
         res = json.load(res_file)
         # api_ = json.load(api_file)
         return res
