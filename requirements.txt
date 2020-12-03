@@ -1,0 +1,7 @@
+fastapi
+tensorflow==2.00
+nltk
+wget
+passlib
+fastapi_jwt_auth
+uvicorn
