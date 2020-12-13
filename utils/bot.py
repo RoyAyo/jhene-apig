@@ -64,8 +64,8 @@ class Evaluate():
             bot_response = r[rand]
             if (tag == "positive_feeling_response" or tag== "negative_feeling_response"):
                 bot_response = bot_response + " ,What can I do for you today?"
-            return (bot_response,'')
+            return (bot_response,tag)
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('Hi'))
+    print(evaluate.bot('fuck you'))

@@ -5,12 +5,13 @@ evaluate = Evaluate()
 
 class Logic:
     def get_response(self,data):
-        message = data['message'].strip()
-        self.location = data.get('location')
-        if(data['from_context'] == ''):
+        message = data.message.strip()
+        # self.location = data.location or ''
+        if(data.from_context == ''):
+            print('here')
             return self.use_bot(message)
         else:
-            return self.use_api_analyzer(data['from_context'],data['context_response'])
+            return self.get_responses()
 
     def use_bot(self,message):
         (response, context) = evaluate.bot(message)
@@ -24,10 +25,8 @@ class Logic:
                 payload = {'message' : '','context' : context,'bot_questions' : response}
                 return payload
             else:
-                message = self.use_api_analyzer(context['from'],context['parameters'])
                 payload = {'message' : response,'context' : '','bot_questions':{}}
                 return payload
 
-    def use_api_analyzer(self,context,parameters=[]):
-        print('okay')
-        return "hello world"
+    def get_responses(self):
+        return "get response"
