@@ -5,6 +5,7 @@ import datetime
 import os
 import uvicorn
 
+
 from utils.logic import Logic
 
 class Messages(BaseModel):
@@ -13,6 +14,7 @@ class Messages(BaseModel):
 
 app = FastAPI()
 logic = Logic()
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,12 +30,16 @@ def read_root():
 
 @app.post("/send_message")
 def send_message(data:Messages):
-    message = logic.get_response(data)
-    return message
+    try:
+        message = logic.get_response(data)
+        return message
+    except:
+        return {'message' : 'Request Error', 'context' : ''}
 
 @app.get('/business')
 def business():
     return {"I":"Dey"}
+
 
 
 if __name__ == "__main__":

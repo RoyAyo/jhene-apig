@@ -57,7 +57,7 @@ class Evaluate():
         x = pred.argmax()
         tag = self.class_sorted[x]
         r = self.res[tag]
-        if type(r) == "dict":
+        if type(r) == str:
             return (r,tag)
         else:
             rand = random.randint(0,len(r)-1)
