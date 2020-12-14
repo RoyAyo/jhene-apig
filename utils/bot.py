@@ -6,7 +6,7 @@ import random
 import numpy as np
 from tensorflow.keras.models import model_from_json
 from tensorflow.compat.v1 import get_default_graph, Session
-from tensorflow.compat.v1.keras.backend import set_session
+from tensorflow.compat.v1.keras.backend import set_sessio
 lemmatizer = WordNetLemmatizer()
 
 class Evaluate():
