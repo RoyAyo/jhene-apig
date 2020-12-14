@@ -5,3 +5,6 @@ wget
 passlib
 fastapi_jwt_auth
 uvicorn
+gunicorn
+pymongo
+pytest

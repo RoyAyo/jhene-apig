@@ -24,12 +24,11 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return "Hello World"
 
 @app.post("/send_message")
 def send_message(data:Messages):
     message = logic.get_response(data)
-    print(message)
     return message
 
 @app.get('/business')
