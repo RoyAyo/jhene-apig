@@ -1,5 +1,5 @@
 fastapi
-tensorflow==2.00
+tensorflow==1.13.1
 nltk
 wget
 passlib
