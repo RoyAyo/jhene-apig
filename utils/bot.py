@@ -57,14 +57,14 @@ class Evaluate():
         x = pred.argmax()
         tag = self.class_sorted[x]
         r = self.res[tag]
-        if type(r) == str:
-            return (r,tag)
+        if type(r) == dict:
+            return (r,tag, True)
         else:
             rand = random.randint(0,len(r)-1)
             bot_response = r[rand]
             if (tag == "positive_feeling_response" or tag== "negative_feeling_response"):
                 bot_response = bot_response + " ,What can I do for you today?"
-            return (bot_response,tag)
+            return (bot_response,tag, False)
 
 if __name__ == "__main__":
     evaluate = Evaluate()

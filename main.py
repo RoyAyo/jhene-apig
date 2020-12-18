@@ -5,7 +5,6 @@ import datetime
 import os
 import uvicorn
 
-
 from utils.logic import Logic
 
 class Messages(BaseModel):
