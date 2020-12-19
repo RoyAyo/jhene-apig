@@ -10,6 +10,9 @@ from utils.logic import Logic
 class Messages(BaseModel):
     message : str
     from_context : str
+    more_info : bool
+    answers : list
+    location : str
 
 app = FastAPI()
 logic = Logic()
@@ -35,7 +38,6 @@ def send_message(data:Messages):
 @app.get('/business')
 def business():
     return {"I":"Dey"}
-
 
 
 if __name__ == "__main__":
