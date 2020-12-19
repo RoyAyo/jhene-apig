@@ -3,7 +3,7 @@ import pymongo
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 
-db = myClient["jhene"]
+db = client["jhene"]
 
 evaluate = Evaluate()
 

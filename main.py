@@ -29,11 +29,8 @@ def read_root():
 
 @app.post("/send_message")
 def send_message(data:Messages):
-    try:
-        message = logic.get_response(data)
-        return message
-    except:
-        return {'message' : 'Request Error', 'context' : ''}
+    message = logic.get_response(data)
+    return message
 
 @app.get('/business')
 def business():
