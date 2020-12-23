@@ -7,7 +7,7 @@ client = pymongo.MongoClient("mongodb://localhost:27017/")
 
 db = client["jhene-db"]
 
-# evaluate = Evaluate()
+evaluate = Evaluate()
 
 class Logic:
     def get_response(self,data):
@@ -54,6 +54,9 @@ class Logic:
         customers = db['customers'].find(query)
         #check collection and returns a user that fits at least the profile
         return "user"
+
+    def search_product():
+
 
 
 def search_db():
