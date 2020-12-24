@@ -52,7 +52,7 @@
 	"handbag_plug" : {"questions" : {}},
 	"house_equipment" : {"questions" : {}},
 	"gym_equipment" : {"questions" : {}},
-	"baby_products" : {"questions" : {}},
+	"baby_product" : {"questions" : {}},
 	"food" : {"questions" : {}},
 	"snack_food" : {"questions" : {}},
 	"therapist" : ["We don't have a therapist yet", "I wish I could help you, we are still screening therapists", "A contact of a therapist will be available soon, but not yet, take care", "try to talk to someone, we are vetting therapists"],
