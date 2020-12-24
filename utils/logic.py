@@ -1,6 +1,7 @@
 from utils.bot import Evaluate
 import pymongo
-from nltk.stem import WordNetLemmatizer
+# from nltk.stem import WordNetLemmatizer
+import nltk
 
 #import the keywords
 from utils.keyword import gender_keywords, item_keywords, budget_keywords
@@ -10,7 +11,7 @@ client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["jhene-db"]
 
 evaluate = Evaluate()
-lemmatizer = WordNetLemmatizer()
+# lemmatizer = WordNetLemmatizer()
 
 class Logic:
     def get_response(self,data):
@@ -30,7 +31,13 @@ class Logic:
         if more:
             #figure our if more info can be found in the sentence
             questions = response['questions']
-            (answers,requirements) = self.check_keywords(self.message)
+            (answers,requirements) = self.check_keywords(questions, context)
+            return {
+                'answers' : answers,
+                'requirements' : requirements,
+                'more_info' : True ,
+                "context" : context
+            }
             if(len(requirements) == 0) :
                 #you are good enough to search the database yourself
                 vendor = self.search_db(context,answers,requirements)
@@ -52,7 +59,7 @@ class Logic:
                     'questions' : final_questions
                 }
                 return payload
-        payload = {'message' : response,'context' : context, more_info : False }
+        payload = {'message' : response,'context' : context, 'more_info' : False }
         return payload
 
     def get_responses(self):
@@ -61,56 +68,51 @@ class Logic:
     def check_keywords(self,response,context):
         requirements = ["gender","budget","location"]
         item = self.search_item(context)
-        #get the gender the ways you can
+        gender = budget = location = None
         if(response.get('gender')):
-            g = item.get('gender')
-            if(g):
-                gender = g
+            gender = self.search_gender()
+            print(1)
+            if(gender):
                 requirements.pop(0)
-            else :
-                g = self.search_gender(context)
-                if(g):
-                    gender = g
-                    requirements.pop(0)
         else:
             requirements.pop(0)
         if(response.get('budget')):
-            b = self.search_gender(context)
-            if(b):
-                budget = b
+            print(2)
+            budget = self.search_budget()
+            if(budget):
                 requirements.pop(-2)
         else:
-            requirements.pop(1)
+            requirements.pop(-2)
         if(response.get('location')):
-            pass
+            location = None
         else:
             requirements.pop(-1)
 
-        answers : {
+        answers = {
             'item' : item,
             'gender' : gender,
             'budget' : budget
         }
         return (answers,requirements)
 
-    def search_budget(self, context):
+    def search_budget(self):
         text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
-        for k in budget_keywords[context].keys():
+        for k in budget_keywords.keys():
             if(k in text_lower):
-                return budget_keywords[context][k]
+                return budget_keywords[k]
         return None
 
 
-    def search_gender(self,message, context):
+    def search_gender(self):
         text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
-        for k in gender_keywords[context].keys():
+        for k in gender_keywords.keys():
             if(k in text_lower):
-                return gender_keywords[context][k]
+                return gender_keywords[k]
         return None
 
-    def search_item(self,message,context):
+    def search_item(self,context):
         text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
         for k in item_keywords[context].keys():
@@ -118,7 +120,7 @@ class Logic:
                 return item_keywords[context][k]
         return None
 
-    def search_db(self, context_, answers, location = ''):
+    def search_db(self, context_, answers):
         context = context_.split('_plug')[0]
         query = {'products' : {'$all' : [context]}}
         item = answers['item']

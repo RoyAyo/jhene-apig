@@ -10,6 +10,7 @@
 	"name_call" : ["yes b", "yes sweetie", "yeah?", "whatcha need"],
 	"shoe_plug" : {"questions":{"gender" : ["Male shoes", "Female shoes"],"budget":["Low budegt", "High budget"]}},
 	"cloth_plug" : {"questions":{"gender" : ["Male Clothes", "Female Clothes"],"budget":["Low budegt", "High budget"]}},
+	"femalecloth_plug" : {"questions":{"budget":["Low budegt", "High budget"]}},
 	"tailor_plug" : {"questions":{"gender" : ["Male Clothes", "Female Clothes"],"budget":["Low budegt", "High budget"]}},
 	"cake_plug" : {"questions":{"gender" : ["Male Clothes", "Female Clothes"],"budget":["Low budegt", "High budget"]}, "location":true},
 	"eventplanner_plug" : {"questions":{"gender" : ["Male Clothes", "Female Clothes"],"budget":["Low budegt", "High budget"]}},

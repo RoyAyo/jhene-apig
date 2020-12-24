@@ -13,11 +13,8 @@ item_keywords = {
     'cloth_plug' : {
         't-shirt' : 't-shirts',
         'top' : 'tops',
-        'skirt' : 'skirts',
         'suit' : 'suits',
-        'gown' : 'gowns',
         'pant' : 'pants',
-        'palazzo' : 'palazzo',
         'jersey' : 'jersey',
         'stock' : 'stock_shirts',
         'checkered' : 'checkered_shirt',
@@ -25,9 +22,23 @@ item_keywords = {
         'short' : 'shorts',
         'jogger' : 'joggers',
         'alte' : 'alte_clothes',
-        "blouse" : "blouse",
         'alternative' : 'alte_clothes',
         "biker" : "biker_shorts"
+    },
+    'femalecloth_plug' : {
+        'skirt' : 'skirts',
+        'palazzo' : 'palazzo',
+        't-shirt' : 't-shirts',
+        'denim' : 'denim_shirts',
+        'skirt' : 'skirts',
+        "bum-shorts" : "bum_shorts",
+        "bum" : "bum-shorts",
+        "blouse" : "blouse",
+        'gown' : 'gowns',
+        'alte' : 'alte_clothes',
+        'jogger' : 'joggers',
+        "biker" : "biker_shorts"
+
     },
     "watch_plug" : {
         "casio" : "casio",
@@ -228,7 +239,8 @@ gender_keywords = {
     "womyn" : "female",
     "boy" : "male",
     "girl" : "female",
-    "lady" : "female"
+    "lady" : "female",
+    "guy" : "male"
 }
 
 budget_keywords = {
@@ -239,5 +251,6 @@ budget_keywords = {
 
 
 if __name__ == "__main__":
+    print(item_keywords)
+    print(budget_keywords)
     print(gender_keywords)
-    print(props_keywords)
