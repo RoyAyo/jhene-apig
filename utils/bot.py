@@ -62,10 +62,16 @@ class Evaluate():
         else:
             rand = random.randint(0,len(r)-1)
             bot_response = r[rand]
+            if (tag == 'slangs'):
+                if(sentence.lower() == 'shoni cc'):
+                    return ('load am, no continue song sha',tag, False)
+                if(sentence.lower() == 'shoni maga'):
+                    return ('bill am, no continue song sha',tag, False)
+                return (sentence,tag, False)
             if (tag == "positive_feeling_response" or tag== "negative_feeling_response"):
                 bot_response = bot_response + " ,What can I do for you today?"
             return (bot_response,tag, False)
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('fuck you'))
+    print(evaluate.bot('shoni maga'))
