@@ -1,12 +1,12 @@
-const props_keywords = {
+item_keywords = {
     'shoe_plug' : {
         'sneakers' : 'sneakers',
         'nike' : 'sneakers',
         'adidas' : 'sneakers',
         'puma' : 'sneakers',
-        "ankle" : "ankle_boot":{},
+        "ankle" : "ankle_boot",
         'chelsea' : 'chelsea_boot',
-        'loafers' : 'loafers'
+        'loafers' : 'loafers',
         'boot' : 'boots',
         'yeezy' : 'sneakers'
     },
@@ -25,8 +25,8 @@ const props_keywords = {
         'short' : 'shorts',
         'jogger' : 'joggers',
         'alte' : 'alte_clothes',
-        "blouse" : "blouse"
-        'alternative' : 'alte_clothes'
+        "blouse" : "blouse",
+        'alternative' : 'alte_clothes',
         "biker" : "biker_shorts"
     },
     "watch_plug" : {
@@ -138,7 +138,7 @@ const props_keywords = {
         "laptop" : "laptop_bag"
     },
     "in_yaba" : {
-        "cloth" , "cloth",
+        "cloth" : "cloth",
         "belt" : "belt",
         "shoe" : "shoe",
         "schoolbag" : "school_bag",
@@ -154,7 +154,7 @@ const props_keywords = {
         "accessory" : "accessory"
     },
     "in_oshodi" : {
-        "cloth" , "cloth",
+        "cloth" : "cloth",
         "belt" : "belt",
         "shoe" : "shoe",
         "schoolbag" : "schoolbag",
@@ -163,7 +163,7 @@ const props_keywords = {
         "purse" : "purse"
     },
     "in_eko" : {
-        "cloth" , "cloth",
+        "cloth" : "cloth",
         "belt" : "belt",
         "shoe" : "shoe",
         "schoolbag" : "schoolbag",
@@ -212,13 +212,13 @@ const props_keywords = {
         "chips" : "chips",
         "pizza" : "pizza",
         "chicken" : "chicken"
-    }
+    },
     "baby_product" : {
 
     }
 }
 
-const gender_keyword = {
+gender_keywords = {
     "male" : "male",
     "female" : "female",
     "man" : "male",
@@ -230,3 +230,14 @@ const gender_keyword = {
     "girl" : "female",
     "lady" : "female"
 }
+
+budget_keywords = {
+    "cheap" : "low_budget",
+    "expensive" : "high_budget",
+    "original" : "high_budget"
+}
+
+
+if __name__ == "__main__":
+    print(gender_keywords)
+    print(props_keywords)
