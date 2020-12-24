@@ -39,5 +39,15 @@
 	"boyfriend_curious" : ["Men are scum", "I have taste", "I only want money", "Men think I am Igbo", "No, I don't"],
 	"laughing" : ["What's funny", "lol", "funny, right?", "Lmao", "I should start stand ups", "Uhmm"],
 	"do_giveaway" : ["I never chop for one week like this", "I am broke", "Tell Don Jazzy I am looking for him", "No money", "Leave me, what do you want", "Are you here to stress me", "I get money na why I be virual plug?"],
-	"car_plug" : {"questions" : {"budget" : ["800k-1.5M","1.5M-5m", ">5M"]}}
+	"car_plug" : {"questions" : {"budget" : ["800k-1.5M","1.5M-5m", ">5M"]}, "location" : false},
+	"wig_plug" : {"questions" : {"budget" : ["Low budget", "Normal budget" ,"High budget"]}, "location": false},
+	"laptop_accessory" : {"questions" : {}, "location": false},
+	"phone_accessory" : {"questions" : {}, "location": false},
+	"btc_plug": {"questions" :{}, "location": false},
+	"monitor_plug" : {"questions": {}, "location": false},
+	"tv_plug" : {"questions" : {}, "location": false},
+	"furniture_plug" : {"questions" : {}, "location": false},
+	"perfume_plug" : {"questions" : {}, "location": false},
+	"skincareproducts_plug" : {"questions" : {}, "location": false},
+	"handbag_plug" : {"questions" : {}, "location": false}
 }

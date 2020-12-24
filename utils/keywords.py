@@ -1,15 +1,17 @@
 const keywords = {
-    'shoes' : {
+    'shoe_plug' : {
         'sneakers' : 'sneakers',
         'nike' : 'sneakers',
         'adidas' : 'sneakers',
-        'chelsea' : 'boots',
         'puma' : 'sneakers',
+        "ankle" : "ankle_boot",
+        'chelsea' : 'chelsea_boot',
+        'loafers' : 'loafers'
         'boots' : 'boots',
         'boot' : 'boots'
         'yeezy' : 'sneakers'
     },
-    'clothes' : {
+    'cloth_plug' : {
         'gown' : 'gowns',
         'suit' : 'suits',
         'shirt' : 'shirts',
@@ -24,6 +26,8 @@ const keywords = {
         'short' : 'shorts',
         'jogger' : 'joggers',
         'alte' : 'alte_clothes',
+        "blouse" : "blouse"
         'alternative' : 'alte_clothes'
-    }
+        "biker" : "biker_shorts"
+    }    
 }
