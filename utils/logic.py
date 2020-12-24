@@ -1,16 +1,16 @@
 from utils.bot import Evaluate
 import pymongo
-from pymongo.errors import CollectionInvalid
+from nltk.stem import WordNetLemmatizer
 
-from utils.keyword import gender_keywords
-from utils.keyword import item_keywords
-from utils.keyword import budget_keywords
+#import the keywords
+from utils.keyword import gender_keywords, item_keywords, budget_keywords
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 
 db = client["jhene-db"]
 
 evaluate = Evaluate()
+lemmatizer = WordNetLemmatizer()
 
 class Logic:
     def get_response(self,data):
@@ -30,73 +30,110 @@ class Logic:
         if more:
             #figure our if more info can be found in the sentence
             questions = response['questions']
-            (item, gender, budget) = self.check_keywords(self.message)
-            if (len(questions) == 0)):
-                #search database and find response (search_user)
-                self.search_user(context)
-                payload = {
-                'message' : '',
-                'context' : context,
-                'more_info' : True,
-                'questions' : questions
-            }
+            (answers,requirements) = self.check_keywords(self.message)
+            if(len(requirements) == 0) :
+                #you are good enough to search the database yourself
+                vendor = self.search_db(context,answers,requirements)
+                payload : {
+                    'message' : '',
+                    'context' : context,
+                    'more_info' : False,
+                    'vendor' : vendor
+                }
             else :
-                #database needed immediately
-                self.search_user(context)
+                #more info needed from the user
+                final_questions = {}
+                for r in requirements:
+                    final_questions['r'] = questions['r']
+                payload = {
+                    'message' : '',
+                    'context' : context,
+                    'more_info' : True,
+                    'questions' : final_questions
+                }
+                return payload
         payload = {'message' : response,'context' : context, more_info : False }
         return payload
 
     def get_responses(self):
         return "get response"
 
-    def check_keywords(self, message):
-        item = self.search_item
-        budget = self.search_budget
-        gender = self.search_gender
-        return (item,budget,gender)
+    def check_keywords(self,response,context):
+        requirements = ["gender","budget","location"]
+        item = self.search_item(context)
+        #get the gender the ways you can
+        if(response.get('gender')):
+            g = item.get('gender')
+            if(g):
+                gender = g
+                requirements.pop(0)
+            else :
+                g = self.search_gender(context)
+                if(g):
+                    gender = g
+                    requirements.pop(0)
+        else:
+            requirements.pop(0)
+        if(response.get('budget')):
+            b = self.search_gender(context)
+            if(b):
+                budget = b
+                requirements.pop(-2)
+        else:
+            requirements.pop(1)
+        if(response.get('location')):
+            pass
+        else:
+            requirements.pop(-1)
 
-    def search_budget(self,message):
-        text_list = nltk.word_tokenize(message)
+        answers : {
+            'item' : item,
+            'gender' : gender,
+            'budget' : budget
+        }
+        return (answers,requirements)
+
+    def search_budget(self, context):
+        text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
-        for k in budget_keywords:
+        for k in budget_keywords[context].keys():
             if(k in text_lower):
-                return k
+                return budget_keywords[context][k]
         return None
 
 
-    def search_gender(self,message):
-        text_list = nltk.word_tokenize(message)
+    def search_gender(self,message, context):
+        text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
-        for k in gender_keywords:
+        for k in gender_keywords[context].keys():
             if(k in text_lower):
-                return k
+                return gender_keywords[context][k]
         return None
 
-    def search_item(self,message):
-        text_list = nltk.word_tokenize(message)
+    def search_item(self,message,context):
+        text_list = nltk.word_tokenize(self.message)
         text_lower = [w.lower() for w in text_list]
-        for k in item_keywords:
+        for k in item_keywords[context].keys():
             if(k in text_lower):
-                return k
+                return item_keywords[context][k]
         return None
 
-    def search_user(self, context_, answers={}, location = ''):
-        context = context_.split('_')[0]
+    def search_db(self, context_, answers, location = ''):
+        context = context_.split('_plug')[0]
         query = {'products' : {'$all' : [context]}}
+        item = answers['item']
+        query['items_available'] = {'$all' : [item]}
         if answers['gender']:
-            gender = 1 if answers['gender'].lower() == 'female' else 2
-            query['owner_details'] = {'gender' : gender}
-        if answers['location'] or answers['location']:
-            #find a way to get just the local govt area from geolocation lat and longs
-            location = answers['location']
-            query['work_locations'] = {'$all' : [location]}
+            query['owner_details'] = {'$all' : [answers['gender']]}
+        if answers['gender']:
+            query['gender_for'] = {'$all' : [answers['gender']]}
+        if answers['budget']:
+            query['budget_for'] : {'$all': [answers['budget']]}
         customers = db['customers'].find(query)
         #check collection and returns a user that fits at least the profile
-        return "user"
-
-    def search_product():
-        return "hello"
-
+        for i in customers:
+            print(i)
+        return i
 
 
 def search_db():
