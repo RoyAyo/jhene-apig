@@ -18,10 +18,17 @@ class Logic:
         message = data.message.strip()
         self.message = message
         if(data.more_info):
-            answers = data['answers']
-            location = data['location']
-            context = data['from_context']
+            answers = data.answers
+            context = data.from_context
+            vendor = self.search_db(context,answers)
             self.search_user(context,answers,location)
+            payload : {
+                    'message' : '',
+                    'context' : context,
+                    'more_info' : False,
+                    'vendor' : vendor
+                }
+            return payload
         else :
             return self.use_bot(message)
 
@@ -32,22 +39,16 @@ class Logic:
             #figure our if more info can be found in the sentence
             questions = response['questions']
             (answers,requirements) = self.check_keywords(questions, context)
-            return {
-                'answers' : answers,
-                'requirements' : requirements,
-                'more_info' : True ,
-                "context" : context,
-                "questions" : questions
-            }
             if(len(requirements) == 0) :
                 #you are good enough to search the database yourself
-                vendor = self.search_db(context,answers,requirements)
+                vendor = self.search_db(context,answers)
                 payload : {
                     'message' : '',
                     'context' : context,
                     'more_info' : False,
                     'vendor' : vendor
                 }
+                return payload
             else :
                 #more info needed from the user
                 final_questions = {}
@@ -56,11 +57,14 @@ class Logic:
                 payload = {
                     'message' : '',
                     'context' : context,
+                    'answers' : answers,
+                    'requirements' : requirements,
                     'more_info' : True,
-                    'questions' : final_questions
+                    'questions' : final_questions,
+                    'vendor' : False
                 }
                 return payload
-        payload = {'message' : response,'context' : context, 'more_info' : False }
+        payload = {'message' : response,'context' : context, 'more_info' : False, 'vendor' : False }
         return payload
 
     def get_responses(self):
@@ -95,7 +99,7 @@ class Logic:
         return (answers,requirements)
 
     def search_budget(self):
-        text_list = nltk.word_tokenize(self.message)
+        text_list = nltk.word_tokenize(self.message)[:11]
         text_lower = [w.lower() for w in text_list]
         for k in budget_keywords.keys():
             if(k in text_lower):
@@ -104,7 +108,7 @@ class Logic:
 
 
     def search_gender(self):
-        text_list = nltk.word_tokenize(self.message)
+        text_list = nltk.word_tokenize(self.message)[:11]
         text_lower = [w.lower() for w in text_list]
         for k in gender_keywords.keys():
             if(k in text_lower):
@@ -112,7 +116,7 @@ class Logic:
         return None
 
     def search_item(self,context):
-        text_list = nltk.word_tokenize(self.message)
+        text_list = nltk.word_tokenize(self.message)[:11]
         text_lower = [w.lower() for w in text_list]
         for k in item_keywords[context].keys():
             if(k in text_lower):
@@ -123,18 +127,20 @@ class Logic:
         context = context_.split('_plug')[0]
         query = {'products' : {'$all' : [context]}}
         item = answers['item']
-        query['items_available'] = {'$all' : [item]}
+        if item:
+            query['items_available'] = {'$all' : [item]}
         if answers['gender']:
             query['owner_details'] = {'$all' : [answers['gender']]}
         if answers['gender']:
             query['gender_for'] = {'$all' : [answers['gender']]}
         if answers['budget']:
             query['budget_for'] : {'$all': [answers['budget']]}
-        customers = db['customers'].find(query)
+        print(query)
+        # customers = db['customers'].find(query)
         #check collection and returns a user that fits at least the profile
-        for i in customers:
-            print(i)
-        return i
+        # for i in customers:
+        #     print(i)
+        return 'user'
 
 
 def search_db():
