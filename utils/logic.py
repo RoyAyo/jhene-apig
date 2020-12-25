@@ -36,7 +36,8 @@ class Logic:
                 'answers' : answers,
                 'requirements' : requirements,
                 'more_info' : True ,
-                "context" : context
+                "context" : context,
+                "questions" : questions
             }
             if(len(requirements) == 0) :
                 #you are good enough to search the database yourself
@@ -71,13 +72,11 @@ class Logic:
         gender = budget = location = None
         if(response.get('gender')):
             gender = self.search_gender()
-            print(1)
             if(gender):
                 requirements.pop(0)
         else:
             requirements.pop(0)
         if(response.get('budget')):
-            print(2)
             budget = self.search_budget()
             if(budget):
                 requirements.pop(-2)
