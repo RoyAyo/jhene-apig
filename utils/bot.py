@@ -42,7 +42,7 @@ class Evaluate():
 
     def bot(self,sentence):
         w = nltk.word_tokenize(sentence)
-        w = [lemmatizer.lemmatize(word.lower(),pos='a') for word in w]
+        w = [lemmatizer.lemmatize(word.lower(),pos='n') for word in w]
         bag = [0] * len(self.words_lemmatized_sorted)
         for word in w:
             for i,wd in enumerate(self.words_lemmatized_sorted):
