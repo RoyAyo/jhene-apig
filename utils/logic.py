@@ -70,13 +70,17 @@ class Logic:
         return payload
 
     def check_keywords(self,response,context):
-        requirements = ["gender","budget","location"]
-        item = self.search_item(context)
         gender = budget = location = None
+        requirements = ["item","gender","budget","location"]
+        if(response.get('item')):
+            item = response.get('item')
+        else :
+            item = self.search_item(context)
+            requirements.pop(0)
         if(response.get('gender')):
             gender = self.search_gender()
             if(gender):
-                requirements.pop(0)
+                requirements.pop(-3)
         else:
             requirements.pop(0)
         if(response.get('budget')):
@@ -89,7 +93,6 @@ class Logic:
             location = None
         else:
             requirements.pop(-1)
-
         answers = {
             'item' : item,
             'gender' : gender,
