@@ -5,12 +5,14 @@ import datetime
 import os
 import uvicorn
 
-
 from utils.logic import Logic
 
 class Messages(BaseModel):
     message : str
     from_context : str
+    more_info : bool
+    answers : dict
+    location : str
 
 app = FastAPI()
 logic = Logic()
@@ -33,14 +35,16 @@ def send_message(data:Messages):
     try:
         message = logic.get_response(data)
         return message
-    except:
-        return {'message' : 'Request Error', 'context' : ''}
+    except Exception as e:
+        return {
+            'msg' : e,
+            'success' : False
+        }
+
 
 @app.get('/business')
 def business():
     return {"I":"Dey"}
-
-
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="info")
