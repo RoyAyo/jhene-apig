@@ -57,5 +57,6 @@
 	"food" : {"questions" : {}},
 	"snack_food" : {"questions" : {}},
 	"therapist" : ["We don't have a therapist yet", "I wish I could help you, we are still screening therapists", "A contact of a therapist will be available soon, but not yet, take care", "try to talk to someone, we are vetting therapists"],
-	"slangs" : ["kpk"]
+	"slangs" : ["kpk"],
+	"apology" : ["I am sorry too", "Don't be sorry", "Thank you"]
 }
