@@ -137,7 +137,7 @@ class Logic:
         #check collection and returns a user that fits at least the profile
         # for i in customers:
         #     print(i)
-        return 'We currently do not have vendors that fit what you want'
+        return 'We currently do not have vendors that fit what you want, please check back'
 
 
 def search_db():
