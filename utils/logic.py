@@ -1,17 +1,16 @@
 from utils.bot import Evaluate
-import pymongo
+# import pymongo
 # from nltk.stem import WordNetLemmatizer
 import nltk
 
 #import the keywords
 from utils.keyword import gender_keywords, item_keywords, budget_keywords
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+# client = pymongo.MongoClient("mongodb://localhost:27017/")
 
-db = client["jhene-db"]
+# db = client["jhene-db"]
 
 evaluate = Evaluate()
-# lemmatizer = WordNetLemmatizer()
 
 class Logic:
     def get_response(self,data):
@@ -142,9 +141,10 @@ class Logic:
 
 
 def search_db():
-    customers = db['customers'].find({'products' : {'$all' : ['shoes']}, 'work_locations':{'$all' : ['Akoka']}, 'owner_details' : {'gender': '1'} })
-    for customer in customers:
-        print(customer)
+    # customers = db['customers'].find({'products' : {'$all' : ['shoes']}, 'work_locations':{'$all' : ['Akoka']}, 'owner_details' : {'gender': '1'} })
+    # for customer in customers:
+    #     print(customer)
+    pass
 
 if __name__ == "__main__":
     search_db()
