@@ -21,8 +21,7 @@ class Logic:
             answers = data.answers
             context = data.from_context
             vendor = self.search_db(context,answers)
-            self.search_user(context,answers,location)
-            payload : {
+            payload = {
                     'message' : '',
                     'context' : context,
                     'more_info' : False,
@@ -30,6 +29,10 @@ class Logic:
                 }
             return payload
         else :
+            if message.lower() == 'yes':
+                return {'message' : 'awn, what do you need?','context' : '', 'more_info' : False, 'vendor' : False }
+            if (message.lower() == 'no') or (message.lower() == 'nope') or(message.lower() == 'nah'):
+                return {'message' : 'Thank you for using Jhene','context' : '', 'more_info' : False, 'vendor' : False }
             return self.use_bot(message)
 
     def use_bot(self,message):
@@ -42,7 +45,7 @@ class Logic:
             if(len(requirements) == 0) :
                 #you are good enough to search the database yourself
                 vendor = self.search_db(context,answers)
-                payload : {
+                payload = {
                     'message' : '',
                     'context' : context,
                     'more_info' : False,
@@ -53,7 +56,7 @@ class Logic:
                 #more info needed from the user
                 final_questions = {}
                 for r in requirements:
-                    final_questions['r'] = questions['r']
+                    final_questions[r] = questions[r]
                 payload = {
                     'message' : '',
                     'context' : context,
@@ -66,9 +69,6 @@ class Logic:
                 return payload
         payload = {'message' : response,'context' : context, 'more_info' : False, 'vendor' : False }
         return payload
-
-    def get_responses(self):
-        return "get response"
 
     def check_keywords(self,response,context):
         requirements = ["gender","budget","location"]
@@ -124,23 +124,21 @@ class Logic:
         return None
 
     def search_db(self, context_, answers):
+        print(answers)
         context = context_.split('_plug')[0]
         query = {'products' : {'$all' : [context]}}
         item = answers['item']
         if item:
             query['items_available'] = {'$all' : [item]}
         if answers['gender']:
-            query['owner_details'] = {'$all' : [answers['gender']]}
-        if answers['gender']:
             query['gender_for'] = {'$all' : [answers['gender']]}
         if answers['budget']:
-            query['budget_for'] : {'$all': [answers['budget']]}
-        print(query)
+            query['budget_for'] = {'$all': [answers['budget']]}
         # customers = db['customers'].find(query)
         #check collection and returns a user that fits at least the profile
         # for i in customers:
         #     print(i)
-        return 'user'
+        return 'We currently do not have vendors that fit what you want'
 
 
 def search_db():
