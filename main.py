@@ -28,18 +28,18 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return "Hello World"
+    return "Hello World2"
 
 @app.post("/send_message")
 def send_message(data:Messages):
-    try:
-        message = logic.get_response(data)
-        return message
-    except Exception as e:
-        return {
-            'msg' : e,
-            'success' : False
-        }
+    # try:
+    message = logic.get_response(data)
+    return message
+    # except Exception as e:
+    #     return {
+    #         'msg' : e,
+    #         'success' : False
+    #     }
 
 
 @app.get('/business')

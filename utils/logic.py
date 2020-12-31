@@ -1,7 +1,8 @@
 from utils.bot import Evaluate
 # import pymongo
-# from nltk.stem import WordNetLemmatizer
 import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 
 #import the keywords
 from utils.keyword import gender_keywords, item_keywords, budget_keywords
@@ -11,6 +12,8 @@ from utils.keyword import gender_keywords, item_keywords, budget_keywords
 # db = client["jhene-db"]
 
 evaluate = Evaluate()
+lemmatizer = WordNetLemmatizer()
+stop_words = set(stopwords.words('english'))
 
 class Logic:
     def get_response(self,data):
@@ -66,10 +69,11 @@ class Logic:
                     'vendor' : False
                 }
                 return payload
-        payload = {'message' : response,'context' : context, 'more_info' : False, 'vendor' : False }
+        payload = {'message' : response,'context' : context, 'more_info' : False, 'vendor' : False}
         return payload
 
     def check_keywords(self,response,context):
+        self.search_text = None
         gender = budget = location = None
         requirements = ["item","gender","budget","location"]
         if(response.get('item')):
@@ -100,33 +104,37 @@ class Logic:
         }
         return (answers,requirements)
 
-    def search_budget(self):
-        text_list = nltk.word_tokenize(self.message)[:11]
+    def nltk_search(self):
+        text_list = nltk.word_tokenize(self.message)[:10]
         text_lower = [w.lower() for w in text_list]
+        filtered_words = [w for w in text_lower if not w in stop_words]
+        search_text = [lemmatizer.lemmatize(word,pos='n') for word in filtered_words]
+        self.search_text = search_text
+        return search_text
+
+    def search_budget(self):
+        text_ = self.search_text or self.nltk_search()
         for k in budget_keywords.keys():
-            if(k in text_lower):
+            if(k in text_):
                 return budget_keywords[k]
         return None
 
 
     def search_gender(self):
-        text_list = nltk.word_tokenize(self.message)[:11]
-        text_lower = [w.lower() for w in text_list]
+        text_ = self.search_text or self.nltk_search()
         for k in gender_keywords.keys():
-            if(k in text_lower):
+            if(k in text_):
                 return gender_keywords[k]
         return None
 
     def search_item(self,context):
-        text_list = nltk.word_tokenize(self.message)[:11]
-        text_lower = [w.lower() for w in text_list]
+        text_ = self.search_text or self.nltk_search()
         for k in item_keywords[context].keys():
-            if(k in text_lower):
+            if(k in text_):
                 return item_keywords[context][k]
         return None
 
     def search_db(self, context_, answers):
-        print(answers)
         context = context_.split('_plug')[0]
         query = {'products' : {'$all' : [context]}}
         item = answers['item']

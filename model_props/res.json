@@ -19,7 +19,7 @@
 	"mua_plug" : {"questions":{"budget":["Low budegt", "High budget"]}},
 	"in_yaba" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
 	"in_oshodi" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
-	"in_computer_village": {"questions" :{"item":["Buy laptops", "Repair laptops","Repair phone", "Buy phones","Buy accessories"], "gender" : ["Male", "Female"]}},
+	"in_computer_village": {"questions" :{"item":["Buy laptops", "Repair laptops","Repair phone", "Buy phones","Buy accessories"]}},
 	"phone_plug" : {"questions" :{}},
 	"laptop_plug" : {"questions" :{}},
 	"in_eko" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
