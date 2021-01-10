@@ -23,7 +23,15 @@ class Logic:
             answers = data.answers
             context = data.from_context
             vendor = self.search_db(context,answers)
-            payload = {
+            if type(vendor) == str:
+                payload = {
+                    'message' : 'We currently do not have vendors that fit your test, please check back',
+                    'context' : context,
+                    'more_info' : False,
+                    'vendor' : False
+                }
+            else :
+                payload = {
                     'message' : '',
                     'context' : context,
                     'more_info' : False,
@@ -31,7 +39,7 @@ class Logic:
                 }
             return payload
         else :
-            if message.lower() == 'yes':
+            if (message.lower() == 'yes') or (message.lower == 'yeah'):
                 return {'message' : 'awn, what do you need?','context' : '', 'more_info' : False, 'vendor' : False }
             if (message.lower() == 'no') or (message.lower() == 'nope') or(message.lower() == 'nah'):
                 return {'message' : 'Thank you for using Jhene','context' : '', 'more_info' : False, 'vendor' : False }
@@ -47,12 +55,20 @@ class Logic:
             if(len(requirements) == 0) :
                 #you are good enough to search the database yourself
                 vendor = self.search_db(context,answers)
-                payload = {
-                    'message' : '',
-                    'context' : context,
-                    'more_info' : False,
-                    'vendor' : vendor
-                }
+                if type(vendor) == str:
+                    payload = {
+                        'message' : 'We currently do not have vendors, fitting the requirements',
+                        'context' : context,
+                        'more_info' : False,
+                        'vendor' : False
+                    }
+                else :
+                    payload = {
+                        'message' : '',
+                        'context' : context,
+                        'more_info' : False,
+                        'vendor' : vendor
+                    }
                 return payload
             else :
                 #more info needed from the user
@@ -148,16 +164,5 @@ class Logic:
         #check collection and returns a user that fits at least the profile
         # for i in customers:
         #     print(i)
+        #  result = {}
         return 'We currently do not have vendors that fit what you want, please check back'
-
-
-def search_db():
-    # customers = db['customers'].find({'products' : {'$all' : ['shoes']}, 'work_locations':{'$all' : ['Akoka']}, 'owner_details' : {'gender': '1'} })
-    # for customer in customers:
-    #     print(customer)
-    pass
-
-if __name__ == "__main__":
-    search_db()
-    print(props_keyword)
-    print(gender_keyword)
