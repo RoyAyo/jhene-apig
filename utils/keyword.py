@@ -50,7 +50,8 @@ item_keywords = {
         "schaffhausen":"schaffhausen"
     },
     "jersey_plug":{
-
+        "customized" : "custom",
+        "custom" : "custom"
     },
     "Jewelry_plug":{
         "bracelet" : "bracelets",
@@ -75,18 +76,14 @@ item_keywords = {
         "painter" : "painter",
         "renovator" : "renovator"
     },
-    "tailor_plug":{
-        
-    },
+    "tailor_plug":{},
     "phone_plug":{
-
+        "iphone" : "iphone",
+        "samsung" : "android",
+        "android" : "android"
     },
-    "camera_plug":{
-
-    },
-    "photographer_plug":{
-
-    },
+    "camera_plug":{},
+    "photographer_plug":{},
     "laptop_plug":{
         "macbook" : "macbook",
         "hp" : "hp",
@@ -101,12 +98,8 @@ item_keywords = {
         "wedding" : "wedding",
         "birthday" : "birthday"
     },
-    "laundryservice_plug":{
-
-    },
-    "realestateagent_plug":{
-
-    },
+    "laundryservice_plug":{},
+    "realestateagent_plug":{},
     "mua_plug":{
         "products" : "makeup_products"
     },
@@ -133,20 +126,26 @@ item_keywords = {
         "table" : "tables"
     },
     "wig_plug":{
-        "bone" : "bone_straight"
+        "bone" : "bone_straight",
+        "human" : "human_hair",
+        "natural" : "human_hair"
     },
     "perfume_plug":{
         "oil" : "perfume_oil"
     },
     "skincareproducts_plug":{
-        "moisturizer" : "moisturizer"
+        "moisturizer" : "moisturizer",
+        "candle" : "candle",
+        "oil" : "oil",
+        "handmade" : "handmade_soap"
     },
-    "bag_plug":{
+    "handbag_plug":{
         "purse" : "purse",
         "travelling" : "travelling_bag",
         "hand" : "hand_bag",
         "school" : "school_bag",
-        "laptop" : "laptop_bag"
+        "laptop" : "laptop_bag",
+        "handbag" : "hand_bag"
     },
     "in_yaba" : {
         "cloth" : "cloth",
@@ -203,29 +202,58 @@ item_keywords = {
         "eth" : "eth",
         "etherum" : "eth"
     },
-    "gym_equipment" : {
-
-    },
-    "house_equipment" : {
+    "gymequipment_plug" : {},
+    "houseequipment_plug" : {
         "washing" : "washine_machine",
         "fridge" : "fridge",
         "freezer" : "fridge",
         "refridgerator" : "fridge"
     },
-    "food" : {
-
+    "food_plug" : {
+        "jollof" : "rice",
+        "rice" : "rice",
+        "fried" : "rice",
+        "okele" : "swallow",
+        "swallow" : "swallow",
+        "amala" : "swallow",
+        "pounded" : "swallow",
+        "amala" : "swallow",
+        "sea" : "sea_food",
+        "chinese" : "chinese"
     },
-    "snack_food" : {
+    "snackfood_plug" : {
         "shawarma" : "shawarma",
         "burger" : "burger",
         "taco" : "taco",
         "pasta" : "pasta",
         "chips" : "chips",
         "pizza" : "pizza",
-        "chicken" : "chicken"
+        "chicken" : "chicken",
+        "smallchops" : "chops",
+        "chops" : "chops"
     },
-    "baby_product" : {
-
+    "babyproduct_plug" : {},
+    "therapist" : {},
+    "graphicdesign_plug" : {},
+    "otherfashionitems_plug" : {},
+    "digitalillustrations_plug" : {},
+    "bakedgood_plug" : {},
+    "adulttoys_plug" : {},
+    "nail_plug" : {},
+    "musicpromoter_plug" : {},
+    "cleaningservice_plug" : {},
+    "game_plug" : {
+        "disc" : "game_disc"
+    },
+    "housefumigation_plug" : {},
+    "bookseller_plug" : {},
+    "cartoonpotrait_plug" : {},
+    "wine_plug" : {
+        "hennessy" : "hennessy",
+        "whiskey" : "whiskey"
+    },
+    "suit_plug" : {
+        "blazers" : "blazer"
     }
 }
 
@@ -246,7 +274,8 @@ gender_keywords = {
 budget_keywords = {
     "cheap" : "low_budget",
     "expensive" : "high_budget",
-    "original" : "high_budget"
+    "original" : "high_budget",
+    "tokunbo" : "low_budget"
 }
 
 
