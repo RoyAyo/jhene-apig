@@ -44,7 +44,7 @@
 	"wig_plug" : {"questions" : {"budget" : ["Low budget", "High budget"]}},
 	"laptop_accessory" : {"questions" : {}},
 	"phone_accessory" : {"questions" : {}},
-	"btc_plug": {"questions" :{}},
+	"Btc_sales": {"questions" :{}},
 	"monitor_plug" : {"questions": {}},
 	"tv_plug" : {"questions" : {}},
 	"furniture_plug" : {"questions" : {"budget" :["Low budget", "High budget"]}},

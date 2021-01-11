@@ -59,7 +59,8 @@ class Evaluate():
         r = self.res[tag]
         if type(r) == dict:
             threshold = pred.max()
-            if(threshold < 0.41):
+            print(threshold)
+            if(threshold < 0.5):
                 unknown_replies = ["I am not sure I get what you mean, please rephrase clearly","I don't understand you, rephrase","your english get wahala, please rephrase","I don lost, please rephrase","don't understand this one oo, rephrase abeg"]
                 rand = random.randint(0,len(unknown_replies)-1)
                 bot_response = unknown_replies[rand]
@@ -80,4 +81,4 @@ class Evaluate():
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('shoni maga'))
+    print(evaluate.bot('want to buy'))
