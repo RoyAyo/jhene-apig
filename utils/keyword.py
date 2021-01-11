@@ -252,7 +252,7 @@ item_keywords = {
         "hennessy" : "hennessy",
         "whiskey" : "whiskey"
     },
-    "suit_plug" : {
+    "suits_plug" : {
         "blazers" : "blazer"
     }
 }
@@ -275,7 +275,8 @@ budget_keywords = {
     "cheap" : "low_budget",
     "expensive" : "high_budget",
     "original" : "high_budget",
-    "tokunbo" : "low_budget"
+    "tokunbo" : "low_budget",
+    "fake" : "low_budget"
 }
 
 
