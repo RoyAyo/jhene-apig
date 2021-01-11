@@ -78,5 +78,5 @@
 	"crime" : ["I don't do such", "No ooo", "I don't plug to anything illegal","Ah, No ask me"],
 	"others_no_category" : {"questions" : {}},
 	"expressions" : ["what happened", "for why", "lol", "Ah"],
-	"suit_plug" : {"questions" : {"budget" : ["Low budget","High budget"]}}
+	"suits_plug" : {"questions" : {"budget" : ["Low budget","High budget"]}}
 }
