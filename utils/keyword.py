@@ -199,24 +199,24 @@ item_keywords = {
 }
 
 gender_keywords = {
-    "male" : "male",
-    "female" : "female",
-    "man" : "male",
-    "men" : "male",
-    "woman" : "female",
-    "women" : "female",
-    "womyn" : "female",
-    "boy" : "male",
-    "girl" : "female",
-    "lady" : "female",
-    "guy" : "male"
+    "male" : "Male",
+    "female" : "Female",
+    "man" : "Male",
+    "men" : "Male",
+    "woman" : "Female",
+    "women" : "Female",
+    "womyn" : "Female",
+    "boy" : "Male",
+    "girl" : "Female",
+    "lady" : "Female",
+    "guy" : "Male"
 }
 
 budget_keywords = {
-    "cheap" : "low_budget",
-    "expensive" : "high_budget",
-    "original" : "high_budget",
-    "fake" : "low_budget"
+    "cheap" : "Low budget",
+    "expensive" : "High budget",
+    "original" : "High budget",
+    "fake" : "Low budget"
 }
 
 
