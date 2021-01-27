@@ -57,7 +57,7 @@ class Logic:
                 vendor = self.search_db(context,answers)
                 if type(vendor) == str:
                     payload = {
-                        'message' : 'We currently do not have vendors, fitting the requirements, please check back',
+                        'message' : vendor,
                         'context' : context,
                         'more_info' : False,
                         'vendor' : False
