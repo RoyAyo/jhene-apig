@@ -78,5 +78,9 @@
 	"crime" : ["I don't do such", "No ooo", "I don't plug to anything illegal","Ah, No ask me"],
 	"others_no_category" : {"questions" : {}},
 	"expressions" : ["what happened", "for why", "lol", "Ah"],
-	"suits_plug" : {"questions" : {"budget" : ["Low budget","High budget"]}}
+	"suits_plug" : {"questions" : {"budget" : ["Low budget","High budget"]}},
+	"honey_plug" : {"questions" : {}},
+	"gift_plug" : {"questions" : {"gender" : ["For Male","For Female"],"budget" : ["Low budget","High budget"]}},
+	"livestocks_plug" : {"questions":{}},
+	"pets_plug" : {"questions" : {}}
 }

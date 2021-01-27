@@ -25,7 +25,7 @@ class Logic:
             vendor = self.search_db(context,answers)
             if type(vendor) == str:
                 payload = {
-                    'message' : 'We currently do not have vendors that fit your want, please check back',
+                    'message' : vendor,
                     'context' : context,
                     'more_info' : False,
                     'vendor' : False
@@ -150,12 +150,11 @@ class Logic:
                 return item_keywords[context][k]
         return None
 
-    def search_db(self, context_, answers):
-        context = context_.split('_plug')[0]
+    def search_db(self, context, answers):
         query = {'products' : {'$all' : [context]}}
         item = answers['item']
         if item:
-            query['items_available'] = {'$all' : [item]}
+            query['items_product'] = {'$all' : [item]}
         if answers['gender']:
             query['gender_for'] = {'$all' : [answers['gender']]}
         if answers['budget']:
@@ -165,4 +164,5 @@ class Logic:
         # for i in customers:
         #     print(i)
         #  result = {}
-        return 'We currently do not have vendors that fit what you want, please check back'
+        res = f"We are currently still gathering and vetting vendors, but I know you talking about {context.split('_plug')[0]}"
+        return res
