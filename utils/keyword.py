@@ -216,7 +216,6 @@ budget_keywords = {
     "cheap" : "low_budget",
     "expensive" : "high_budget",
     "original" : "high_budget",
-    "tokunbo" : "low_budget",
     "fake" : "low_budget"
 }
 
