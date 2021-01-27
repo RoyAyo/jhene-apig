@@ -1,9 +1,6 @@
 item_keywords = {
     'shoe_plug' : {
         'sneakers' : 'sneakers',
-        'nike' : 'sneakers',
-        'adidas' : 'sneakers',
-        'puma' : 'sneakers',
         "ankle" : "ankle_boot",
         'chelsea' : 'chelsea_boot',
         'loafers' : 'loafers',
@@ -12,6 +9,7 @@ item_keywords = {
     },
     'cloth_plug' : {
         't-shirt' : 't-shirts',
+        'shirt' : 't-shirts',
         'top' : 'tops',
         'suit' : 'suits',
         'pant' : 'pants',
@@ -40,32 +38,13 @@ item_keywords = {
         "biker" : "biker_shorts"
 
     },
-    "watch_plug" : {
-        "casio" : "casio",
-        "cartier" : "cartier",
-        "benson" : "benson",
-        "hublot" : "hublot",
-        "millie" : "richard_millie",
-        "bell" : "bell_and_ross",
-        "schaffhausen":"schaffhausen"
-    },
+    "watch_plug" : {},
     "jersey_plug":{
         "customized" : "custom",
         "custom" : "custom"
     },
-    "Jewelry_plug":{
-        "bracelet" : "bracelets",
-        "ring" : "rings",
-        "necklace" : "necklace",
-        "earring" : "earring",
-        "cufflink" : "cufflink"
-    },
-    "slips_plug":{
-        "nike" : "nike",
-        "adidas" : "adidas",
-        "puma" : "puma",
-        "crocs" : "crocs"
-    },
+    "Jewelry_plug":{},
+    "slips_plug":{},
     "heels_plug":{
         
     },
@@ -78,19 +57,12 @@ item_keywords = {
     },
     "tailor_plug":{},
     "phone_plug":{
-        "iphone" : "iphone",
-        "samsung" : "android",
-        "android" : "android"
+        "new" : "iphone",
+        "tokunbo" : "android",
     },
     "camera_plug":{},
     "photographer_plug":{},
-    "laptop_plug":{
-        "macbook" : "macbook",
-        "hp" : "hp",
-        "dell" : "dell",
-        "toshiba" : "toshiba",
-        "hewlett" : "hp"
-    },
+    "laptop_plug":{},
     "cake_plug":{
         "cupcake" : "cupcakes"
     },
@@ -103,33 +75,14 @@ item_keywords = {
     "mua_plug":{
         "products" : "makeup_products"
     },
-    "car_plug":{
-        "toyota" : "toyota",
-        "benz" : "benz",
-        "rover" : "land_rover",
-        "mercedes" : "benz",
-        "mini-bus" : "bus",
-        "audi" : "audi",
-        "volkswagon" : "volkswagon"
-    },
-    "monitor_plug":{
-        "samsung" : "samsung",
-        "curved" : "curved_monitor"
-    },
-    "tv_plug":{
-        "samsung" : "samsung",
-        "curved" : "curved_tv"
-    },
+    "car_plug":{},
+    "monitor_plug":{},
+    "tv_plug":{},
     "furniture_plug":{
-        "chair" : "chairs",
-        "cupboard" : "cupboards",
-        "table" : "tables"
+        "repair" : "repairs",
+        "build" : "build"
     },
-    "wig_plug":{
-        "bone" : "bone_straight",
-        "human" : "human_hair",
-        "natural" : "human_hair"
-    },
+    "wig_plug":{},
     "perfume_plug":{
         "oil" : "perfume_oil"
     },
@@ -181,20 +134,8 @@ item_keywords = {
         "handbag" : "handbag",
         "purse" : "purse"
     },
-    "phone_accessory" : {
-        "charger" : "charger",
-        "cord" : "cord",
-        "airpod" : "airpod",
-        "earbud" : "earbud"
-    },
-    "laptop_accessory" : {
-        "charger" : "charger",
-        "mouse" : "mouse",
-        "hdd" : "harddrive",
-        "harddrive" : "harddrive",
-        "ssd" : "harddrive",
-        "ram" : "ram"
-    },
+    "phone_accessory" : {},
+    "laptop_accessory" : {},
     "btc_sales" : {
         "cashapp" : "cashapp",
         "btc" : "btc",
