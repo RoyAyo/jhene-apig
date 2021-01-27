@@ -165,4 +165,10 @@ class Logic:
         #     print(i)
         #  result = {}
         res = f"We are currently still gathering and vetting vendors, but I know you talking about {context.split('_plug')[0]}"
+        if item:
+            res += f" specifically {item}"
+        if answers['gender']:
+            res += f" for {answers['gender']}"
+        if answers['budget']:
+            res += f" with a {answers['budget']}"
         return res

@@ -90,7 +90,7 @@ item_keywords = {
         "moisturizer" : "moisturizer",
         "candle" : "candle",
         "oil" : "oil",
-        "handmade" : "handmade_soap"
+        "handmade" : "handmade"
     },
     "handbag_plug":{
         "purse" : "purse",
