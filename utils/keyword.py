@@ -1,41 +1,46 @@
 item_keywords = {
     'shoe_plug' : {
+        'nike' : 'sneakers',
+        'adidas' : 'sneakers',
+        'puma' : 'sneakers',
         'sneakers' : 'sneakers',
-        "ankle" : "ankle_boot",
-        'chelsea' : 'chelsea_boot',
+        "ankle" : "ankle boots",
+        'chelsea' : 'chelsea boots',
         'loafers' : 'loafers',
         'boot' : 'boots',
         'yeezy' : 'sneakers'
     },
     'cloth_plug' : {
-        't-shirt' : 't-shirts',
+        'designer' : 'designers',
         'shirt' : 't-shirts',
         'top' : 'tops',
+        't-shirt' : 't-shirts',
+        'tshirt' : 't-shirts',
         'suit' : 'suits',
         'pant' : 'pants',
-        'jersey' : 'jersey',
-        'stock' : 'stock_shirts',
-        'checkered' : 'checkered_shirt',
-        'denim' : 'denim_shirts',
+        'jersey' : 'jerseys',
+        'stock' : 'stock shirts',
+        'checkered' : 'checkered shirt',
+        'denim' : 'denim shirts',
         'short' : 'shorts',
         'jogger' : 'joggers',
-        'alte' : 'alte_clothes',
-        'alternative' : 'alte_clothes',
-        "biker" : "biker_shorts"
+        'alte' : 'alte clothes',
+        'alternative' : 'alte clothes',
+        "biker" : "biker shorts"
     },
     'femalecloth_plug' : {
         'skirt' : 'skirts',
         'palazzo' : 'palazzo',
         't-shirt' : 't-shirts',
-        'denim' : 'denim_shirts',
+        'denim' : 'denim shirts',
         'skirt' : 'skirts',
-        "bum-shorts" : "bum_shorts",
-        "bum" : "bum-shorts",
+        "bum-shorts" : "bum shorts",
+        "bum" : "bum shorts",
         "blouse" : "blouse",
         'gown' : 'gowns',
-        'alte' : 'alte_clothes',
+        'alte' : 'alte clothes',
         'jogger' : 'joggers',
-        "biker" : "biker_shorts"
+        "biker" : "biker shorts"
 
     },
     "watch_plug" : {},
@@ -75,7 +80,11 @@ item_keywords = {
     "mua_plug":{
         "products" : "makeup_products"
     },
-    "car_plug":{},
+    "car_plug":{
+        "tesla" : "tesla, rich guy",
+        "benz" : "benz",
+        "mercedes" : "benz"
+    },
     "monitor_plug":{},
     "tv_plug":{},
     "furniture_plug":{
