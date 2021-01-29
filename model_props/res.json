@@ -17,12 +17,12 @@
 	"laundryservice_plug" : {"questions":{"budget":["Low budget", "High budget"]}, "location":true},
 	"realestateagent_plug" : {"questions":{"budget":["Low budget", "High budget"]}},
 	"mua_plug" : {"questions":{"budget":["Low budget", "High budget"]}},
-	"in_yaba" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
-	"in_oshodi" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
+	"in_yaba_market" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
+	"in_oshodi_market" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
 	"in_computer_village": {"questions" :{"item":["Buy laptops", "Repair laptops","Repair phone", "Buy phones","Buy accessories"]}},
 	"phone_plug" : {"questions" :{}},
 	"laptop_plug" : {"questions" :{}},
-	"in_eko" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
+	"in_eko_market" : {"questions" :{"item":["Shoes", "Clothes","Wrist watch", "Bags","Slides"], "gender" : ["Male", "Female"]}},
 	"food_prep" : ["I cannot cook yet, Roy never teach me","Google am niggur"],
 	"interior_decor_plug" : {"questions" :{"budget":["Low budget", "High budget"]}},
 	"confused" : ["What you need", "How can I help", "what", "Can you repeat what you meant, didn't get that"],
@@ -59,7 +59,7 @@
 	"therapist" : ["We don't have a therapist yet", "I wish I could help you, we are still screening therapists", "A contact of a therapist will be available soon, but not yet, take care", "try to talk to someone, we are vetting therapists"],
 	"slangs" : ["kpk"],
 	"apology" : ["I am sorry too", "Don't be sorry", "Thank you", "awn awn"],
-	"stylist" : {"question" : {"gender":["For Male","For Female"],"budget":["Low budget","High budget"]}},
+	"stylist_plug" : {"question" : {"gender":["For Male","For Female"],"budget":["Low budget","High budget"]}},
 	"stupid_questions" : ["defs", "definitely", "hmmmmm, for sure","No, my own is to tell you who has, I no want wahala","lol, funny question","All these questions, na my work?"],
 	"game_plug" : {"questions" : {}},
 	"otherfashionitems_plug" : {"questions" : {}},
@@ -82,5 +82,7 @@
 	"honey_plug" : {"questions" : {}},
 	"gift_plug" : {"questions" : {"gender" : ["For Male","For Female"],"budget" : ["Low budget","High budget"]}},
 	"livestocks_plug" : {"questions":{}},
-	"pets_plug" : {"questions" : {}}
+	"pets_plug" : {"questions" : {}},
+	"jersey_plug" : {"questions" : {}},
+	"nightwares_plug" : {"questions" : {}}
 }
