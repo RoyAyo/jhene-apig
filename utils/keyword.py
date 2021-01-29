@@ -45,8 +45,8 @@ item_keywords = {
     },
     "watch_plug" : {},
     "jersey_plug":{
-        "customized" : "custom",
-        "custom" : "custom"
+        "customized" : "custom jerseys",
+        "custom" : "custom jerseys"
     },
     "Jewelry_plug":{},
     "slips_plug":{},
@@ -62,8 +62,15 @@ item_keywords = {
     },
     "tailor_plug":{},
     "phone_plug":{
-        "new" : "iphone",
-        "tokunbo" : "android",
+        "iphone" : "iphone",
+        "samsung" : "samsung",
+        "android" : "android", 
+        "infinix" : "android", 
+        "pixel" : "google pixel", 
+        "tecno" : "android", 
+        "htc" : "android", 
+        "huawei" : "android", 
+        "itel" : "android", 
     },
     "camera_plug":{},
     "photographer_plug":{},

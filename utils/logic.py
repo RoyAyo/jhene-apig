@@ -21,6 +21,8 @@ class Logic:
         self.message = message
         if(data.more_info):
             answers = data.answers
+            if answers.get('gender'):
+                answers['gender'] = answers['gender'].split(" ")[1]
             context = data.from_context
             vendor = self.search_db(context,answers)
             if type(vendor) == str:
