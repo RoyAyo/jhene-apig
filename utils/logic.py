@@ -1,5 +1,5 @@
 from utils.bot import Evaluate
-import pymongo
+# import pymongo
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
@@ -7,9 +7,9 @@ from nltk.corpus import stopwords
 #import the keywords
 from utils.keyword import gender_keywords, item_keywords, budget_keywords
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+# client = pymongo.MongoClient("mongodb://localhost:27017/")
 
-db = client["jhene-db"]
+# db = client["jhene-db"]
 
 evaluate = Evaluate()
 lemmatizer = WordNetLemmatizer()
