@@ -19,6 +19,7 @@ class Logic:
     def get_response(self,data):
         message = data.message.strip()
         self.message = message
+        self.location = data.location
         if(data.more_info):
             answers = data.answers
             if answers.get('gender'):
@@ -41,10 +42,6 @@ class Logic:
                 }
             return payload
         else :
-            if (message.lower() == 'yes') or (message.lower == 'yeah'):
-                return {'message' : 'awn, what do you need?','context' : '', 'more_info' : False, 'vendor' : False }
-            if (message.lower() == 'no') or (message.lower() == 'nope') or(message.lower() == 'nah'):
-                return {'message' : 'Thank you for using Jhene','context' : '', 'more_info' : False, 'vendor' : False }
             return self.use_bot(message)
 
     def use_bot(self,message):
@@ -118,7 +115,8 @@ class Logic:
         answers = {
             'item' : item,
             'gender' : gender,
-            'budget' : budget
+            'budget' : budget,
+            'location' : self.location
         }
         return (answers,requirements)
 
@@ -173,4 +171,6 @@ class Logic:
             res += f" for {answers['gender']}"
         if answers['budget']:
             res += f" with a {answers['budget']}"
+        if answers['location'] != '':
+            res += f"around {answers['location']}"
         return res

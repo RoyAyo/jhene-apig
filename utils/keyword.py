@@ -297,7 +297,8 @@ item_keywords = {
     "stylist_plug" : {},
     "gift_plug" : {},
     "honey_plug":{},
-    "night/underwares_plug":{}
+    "night/underwares_plug":{},
+    "logistics service_plug":{}
 }
 
 gender_keywords = {

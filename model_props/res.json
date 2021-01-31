@@ -88,5 +88,6 @@
 	"night/underwares_plug" : {"questions" : {}},
 	"tattoo/piercing_plug" : {"questions": {}},
 	"plumber_plug" : {"questions": {}},
-	"ankara_plug" : {"questions": {"budget":["Low budget","Low budget"]}}
+	"ankara_plug" : {"questions": {"budget":["Low budget","Low budget"]}},
+	"logistics service_plug":{"questions" : {}}
 }
