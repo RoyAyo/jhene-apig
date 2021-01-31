@@ -32,14 +32,14 @@ def read_root():
 
 @app.post("/send_message")
 def send_message(data:Messages):
-    try:
-        message = logic.get_response(data)
-        return message
-    except Exception as e:
-        return {
-             'msg' : e,
-             'success' : False
-        }
+    # try:
+    message = logic.get_response(data)
+    return message
+    # except Exception as e:
+    #     return {
+    #          'msg' : e,
+    #          'success' : False
+    #     }
 
 
 @app.get('/business')

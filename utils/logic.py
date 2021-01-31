@@ -159,7 +159,7 @@ class Logic:
             query['gender_for'] = {'$all' : [answers['gender']]}
         if answers['budget']:
             query['budget_for'] = {'$all': [answers['budget']]}
-        customers = db['vendors'].find(query)
+        # customers = db['vendors'].find(query)
         #check collection and returns a user that fits at least the profile
         # for i in customers:
         #     print(i)
@@ -172,5 +172,5 @@ class Logic:
         if answers['budget']:
             res += f" with a {answers['budget']}"
         if answers['location'] != '':
-            res += f"around {answers['location']}"
+            res += f" around {answers['location']}"
         return res
