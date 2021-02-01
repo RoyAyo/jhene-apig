@@ -8,13 +8,18 @@ from tensorflow.keras.models import model_from_json
 from tensorflow.compat.v1 import get_default_graph, Session
 from tensorflow.compat.v1.keras.backend import set_session
 lemmatizer = WordNetLemmatizer()
+from nltk.corpus import stopwords
+
+stopwords_list = stopwords.words('english')
+exclude_extra = ['plug','buy','get','vendor','around']
+stopwords_list.extend(exclude_extra)
+
 
 class Evaluate():
     def __init__(self):
         self.words_lemmatized_sorted,self.class_sorted = self.load_words()
         self.model = self.load_keras()
         self.res = self.res_json()
-        self.keywords = {"soundcloud":"music","Deezer":"music","Spotify":"music","Netflix":"watch_movie","Twitter":"twitter"}
 
     def load_words(self):
         with open('model_props/words_used.pkl','rb') as f:
@@ -41,10 +46,11 @@ class Evaluate():
         return res
 
     def bot(self,sentence):
-        w = nltk.word_tokenize(sentence)
-        w = [lemmatizer.lemmatize(word.lower(),pos='n') for word in w]
+        words_tokenized = nltk.word_tokenize(sentence)
+        words_lemmatized = [lemmatizer.lemmatize(word.lower(),pos='n') for word in words_tokenized]
+        words_excluded = [w for w in words_lemmatized if not w in stopwords_list]
         bag = [0] * len(self.words_lemmatized_sorted)
-        for word in w:
+        for word in words_excluded:
             for i,wd in enumerate(self.words_lemmatized_sorted):
                 if wd == word:
                     bag[i] = 1
@@ -59,7 +65,7 @@ class Evaluate():
         r = self.res[tag]
         if type(r) == dict:
             threshold = pred.max()
-            if(threshold < 0.45):
+            if(threshold < 0.5):
                 unknown_replies = ["I am not sure I get what you mean, please rephrase clearly","I don't understand you, rephrase","your english get wahala, please rephrase","I don lost, please rephrase","don't understand this one oo, rephrase abeg"]
                 rand = random.randint(0,len(unknown_replies)-1)
                 bot_response = unknown_replies[rand]
