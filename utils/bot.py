@@ -64,8 +64,8 @@ class Evaluate():
         tag = self.class_sorted[x]
         print(tag)
         r = self.res[tag]
+        threshold = pred.max()
         if type(r) == dict:
-            threshold = pred.max()
             print(threshold)
             if(threshold < 0.5):
                 unknown_replies = ["I am not sure I get what you mean, please rephrase clearly","I don't understand you, rephrase","your english get wahala, please rephrase","I don lost, please rephrase","don't understand this one oo, rephrase abeg"]
@@ -74,6 +74,12 @@ class Evaluate():
                 return (bot_response,"",False)
             return (r,tag, True)
         else:
+            print(threshold)
+            if(threshold < 0.27):
+                unknown_replies = ["My english never good like that, please rephrase clearly","I don't understand", "??", "hm?","please repeat","I don't understand"]
+                rand = random.randint(0,len(unknown_replies)-1)
+                bot_response = unknown_replies[rand]
+                return (bot_response,"",False)
             rand = random.randint(0,len(r)-1)
             bot_response = r[rand]
             if (tag == 'slangs'):
@@ -88,4 +94,4 @@ class Evaluate():
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('ikeja'))
+    print(evaluate.bot('shut up'))

@@ -86,5 +86,6 @@
 	"tattoo/piercing_plug" : {"questions": {}},
 	"plumber_plug" : {"questions": {}},
 	"ankara_plug" : {"questions": {"budget":["Low budget","Low budget"]}},
-	"logistics service_plug":{"questions" : {}}
+	"logistics service_plug":{"questions" : {}},
+	"ass_call" : ["I am a bress person","breast all the way"]
 }
