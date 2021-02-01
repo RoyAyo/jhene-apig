@@ -11,7 +11,7 @@ lemmatizer = WordNetLemmatizer()
 from nltk.corpus import stopwords
 
 stopwords_list = stopwords.words('english')
-exclude_extra = ['plug','buy','get','vendor','around']
+exclude_extra = ['plug','buy','get','vendor','around','cheap','original']
 stopwords_list.extend(exclude_extra)
 
 
@@ -62,9 +62,11 @@ class Evaluate():
             pred = self.model.predict(bag)
         x = pred.argmax()
         tag = self.class_sorted[x]
+        print(tag)
         r = self.res[tag]
         if type(r) == dict:
             threshold = pred.max()
+            print(threshold)
             if(threshold < 0.5):
                 unknown_replies = ["I am not sure I get what you mean, please rephrase clearly","I don't understand you, rephrase","your english get wahala, please rephrase","I don lost, please rephrase","don't understand this one oo, rephrase abeg"]
                 rand = random.randint(0,len(unknown_replies)-1)
@@ -86,4 +88,4 @@ class Evaluate():
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('want to buy gown'))
+    print(evaluate.bot('ikeja'))
