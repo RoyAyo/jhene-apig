@@ -338,7 +338,9 @@ budget_keywords = {
     "cheap" : "Low budget",
     "expensive" : "High budget",
     "original" : "High budget",
-    "fake" : "Low budget"
+    "fake" : "Low budget",
+    "okrika": "Low budget",
+    "benddown" : "Low budget"
 }
 
 

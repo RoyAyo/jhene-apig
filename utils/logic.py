@@ -96,6 +96,7 @@ class Logic:
             if(item):
                 requirements.pop(0)
         else:
+            item = self.search_item(context)
             requirements.pop(0)
         if(response.get('gender')):
             gender = self.search_gender()
