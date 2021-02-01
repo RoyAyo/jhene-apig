@@ -66,7 +66,6 @@ class Evaluate():
         r = self.res[tag]
         threshold = pred.max()
         if type(r) == dict:
-            print(threshold)
             if(threshold < 0.5):
                 unknown_replies = ["I am not sure I get what you mean, please rephrase clearly","I don't understand you, rephrase","your english get wahala, please rephrase","I don lost, please rephrase","don't understand this one oo, rephrase abeg"]
                 rand = random.randint(0,len(unknown_replies)-1)
@@ -74,7 +73,6 @@ class Evaluate():
                 return (bot_response,"",False)
             return (r,tag, True)
         else:
-            print(threshold)
             if(threshold < 0.27):
                 unknown_replies = ["My english never good like that, please rephrase clearly","I don't understand", "??", "hm?","please repeat","I don't understand"]
                 rand = random.randint(0,len(unknown_replies)-1)
@@ -94,4 +92,4 @@ class Evaluate():
 
 if __name__ == "__main__":
     evaluate = Evaluate()
-    print(evaluate.bot('shut up'))
+    print(evaluate.bot('what type of movies do you watch'))
