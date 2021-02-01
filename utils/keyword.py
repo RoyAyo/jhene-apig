@@ -173,8 +173,25 @@ item_keywords = {
         "handbag" : "handbag",
         "purse" : "purse"
     },
-    "phone accessory_plug" : {},
-    "laptop accessory_plug" : {},
+    "phone accessory_plug" : {
+        "charger" : "charger",
+        "earbud" : "earbuds",
+        "airpod" : "earbuds",
+        "ear" : "ear piece",
+        "earpiece" : "ear piece",
+        "earphone" : "ear phone",
+        "cord" : "phone cord",
+        "protector" : "screen guards",
+        "guard" : "screen guards",
+        "selfie" : "selfie sticks"
+    },
+    "laptop accessory_plug" : {
+        "mouse" : "mouse",
+        "keyboard" : "keyboard",
+        "drive" : "hard drive",
+        "hdd" : "hard drive",
+        "ssd" : "hard drive"
+    },
     "trade online_plug" : {
         "btc" : "btc",
         "bitcoin" : "btc",
@@ -203,6 +220,7 @@ item_keywords = {
         "stew" : "soup",
         "fried" : "rice",
         "okele" : "swallow",
+        "swalow" : "swallow",
         "swallow" : "swallow",
         "amala" : "swallow",
         "pounded" : "swallow",
@@ -298,7 +316,8 @@ item_keywords = {
     "gift_plug" : {},
     "honey_plug":{},
     "night/underwares_plug":{},
-    "logistics service_plug":{}
+    "logistics service_plug":{},
+    "ankara_plug":{}
 }
 
 gender_keywords = {
