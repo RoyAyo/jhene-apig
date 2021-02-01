@@ -62,7 +62,6 @@ class Evaluate():
             pred = self.model.predict(bag)
         x = pred.argmax()
         tag = self.class_sorted[x]
-        print(tag)
         r = self.res[tag]
         threshold = pred.max()
         if type(r) == dict:
