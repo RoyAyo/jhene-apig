@@ -37,7 +37,7 @@ def send_message(data:Messages):
         return message
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=404, detail=e)
+        raise HTTPException(status_code=422, detail={"message":"Unable to process data","success":False})
 
 
 @app.get('/business')
