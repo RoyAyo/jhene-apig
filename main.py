@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import datetime
@@ -36,10 +36,8 @@ def send_message(data:Messages):
         message = logic.get_response(data)
         return message
     except Exception as e:
-        return {
-             'msg' : e,
-             'success' : False
-        }
+        print(e)
+        raise HTTPException(status_code=404, detail=e)
 
 
 @app.get('/business')
